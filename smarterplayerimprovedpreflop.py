@@ -26,6 +26,35 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
   big_blind_has_spoken
   street_in_str
   '''
+  
+  #This is the preflop strategy that is referenced from University of Alberta Cepheus Poker Project.
+  #It is a lookup table that determines the strength of the hand (and subsequently next move that the player
+  #is going to make) based entirely on the 2 starting cards that the player has and the moves between the
+  #two players in the preflop stage.
+  
+  no_action_dict = {
+
+  }
+
+  raise_dict = {
+
+  }
+
+  raise__raise_dict = {
+
+  }
+
+  raise__raise_raise_dict = {
+    
+  }
+  
+  preflop_dict = {
+    []: no_action_dict,
+    ["raise"]: raise_dict,
+    ["raise", "raise"]: raise__raise_dict,
+    ["raise", "raise", "raise"]: raise__raise_raise_dict
+  }
+  
   LOG = False
   MIN_VALUE = -999.0
   def __init__(self):
