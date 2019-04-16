@@ -117,6 +117,8 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
 
 
     if self.street == 0:
+
+
       if len(valid_actions) == 3 and self.is_excellent_hole_card():
         self.player_committed_amt = self.oppo_committed_amt + self.raise_amt[self.street]
         self.num_raises = self.num_raises + 1
@@ -192,13 +194,27 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
     return np.argmax(eva)
 
   def is_decent_hole_card(self):
-    hc = [int(c.rank) for c in self.hole_card]
-    if hc[0] == hc[1]:
-      return True
-    elif hc[0] > 9 or hc[1] > 9:
-      return True
-    else:
-      return False
+    hc = []
+    suits = []
+    for c in self.hole_card:
+      r = int(c.rank)
+      hc.append(r)
+      suits.append(c.suit)
+    hc.sort()
+    first_num = c.RANK_MAP[hc[0]]
+    second_num = c.RANK_MAP[hc[1]]
+    same_suit = suits[0] == suits[1]
+    tup = ()
+    tup += first_num
+    tup += second_num
+    tup += same_suit
+
+    # if hc[0] == hc[1]:
+    #   return True
+    # elif hc[0] > 9 or hc[1] > 9:
+    #   return True
+    # else:
+    #   return False
 
   def is_excellent_hole_card(self):
     hc = [int(c.rank) for c in self.hole_card]
