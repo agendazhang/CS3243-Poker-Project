@@ -28,7 +28,7 @@ with open('rrrPreflop.json') as json_file:
 
         prob_fold = float(p[u'fold'])
         prob_call = float(p[u'call'])
-        prob_raise = float(p[u'fold'])
+        prob_raise = float(p[u'raise'])
         
 
         prob_list = []
