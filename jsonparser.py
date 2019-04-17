@@ -13,7 +13,7 @@ class Triple:
         tup.append(self.same_suit)
         return tup
 
-with open('rrrPreflop.json') as json_file:
+with open('crrrPreflop.json') as json_file:
     data = json.load(json_file)
     pdict = {}
     for p in data['data']:
@@ -23,13 +23,13 @@ with open('rrrPreflop.json') as json_file:
         first_suit = cards[1]
         second_suit = cards[3]
         same_suit = (first_suit == second_suit)
-        
+
         action = ""
 
         prob_fold = float(p[u'fold'])
         prob_call = float(p[u'call'])
         prob_raise = float(p[u'raise'])
-        
+
 
         prob_list = []
         prob_list.append(prob_fold)
@@ -48,9 +48,8 @@ with open('rrrPreflop.json') as json_file:
         tup += (first_num,)
         tup += (second_num,)
         tup += (same_suit,)
-        
+
         #tup = Triple(first_num, second_num, same_suit)
         pdict[tup] = action
 
     print(pdict)
-
