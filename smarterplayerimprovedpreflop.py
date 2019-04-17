@@ -204,8 +204,10 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
   def is_decent_hole_card(self):
     moves_in_round = ((self.players)[0]).round_action_histories
     moves = ()
+    print(type(moves_in_round))
     for m in moves_in_round:
-      moves += (m.lower(),)
+      if m is not None:
+        moves += (m.lower(),)
 
     hc = []
     suits = []
@@ -243,7 +245,8 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
     moves_in_round = ((self.players)[0]).round_action_histories
     moves = ()
     for m in moves_in_round:
-      moves += (m.lower(),)
+      if m is not None:
+        moves += (m.lower(),)
 
     hc = []
     suits = []
