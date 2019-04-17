@@ -46,7 +46,7 @@ preflop_dict = {
   ("call", "raise", "raise", "raise"): call_raise_raise_raise_dict
 }
 
-class SmarterPlayerImprovedPreflop(BasePokerPlayer):
+class Group40Player(BasePokerPlayer):
   '''
   self:
   street
@@ -217,7 +217,7 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
     moves = ()
     #print("CURRENT MOVES: ", round_state)
     moves_length = len(round_state["action_histories"]["preflop"]) - 2
-    
+
     if moves_length > 0:
       for i in range(2, 2 + moves_length):
         next_move = round_state["action_histories"]["preflop"][i]["action"].lower()
@@ -261,7 +261,7 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
     moves = ()
     #print("CURRENT MOVES: ", round_state)
     moves_length = len(round_state["action_histories"]["preflop"]) - 2
-    
+
     if moves_length > 0:
       for i in range(2, 2 + moves_length):
         next_move = round_state["action_histories"]["preflop"][i]["action"].lower()
