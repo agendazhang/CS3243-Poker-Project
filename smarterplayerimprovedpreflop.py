@@ -223,9 +223,12 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
     tup += same_suit
 
     inner_dict = preflop_dict[moves]
-    action = inner_dict[tup]
-    if action == "call" or action == "raise":
-      return True
+    if tup in inner_dict:
+      action = inner_dict[tup]
+      if action == "call" or action == "raise":
+        return True
+      else:
+        return False
     else:
       return False
 
@@ -258,9 +261,12 @@ class SmarterPlayerImprovedPreflop(BasePokerPlayer):
     tup += same_suit
 
     inner_dict = preflop_dict[moves]
-    action = inner_dict[tup]
-    if action == "raise":
-      return True
+    if tup in inner_dict:
+      action = inner_dict[tup]
+      if action == "raise":
+        return True
+      else:
+        return False
     else:
       return False
     
