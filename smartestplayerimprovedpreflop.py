@@ -12,6 +12,7 @@ import numpy as np
 import copy
 import random as rand
 import math
+
 #This is the preflop strategy that is referenced from University of Alberta Cepheus Poker Project.
 #It is a lookup table that determines the strength of the hand (and subsequently next move that the player
 #is going to make) based entirely on the 2 starting cards that the player has and the moves between the
@@ -218,13 +219,13 @@ class SmartestPlayerImprovedPreflop(BasePokerPlayer):
 
   def preflop_move(self, round_state):
     moves = ()
-    #print("CURRENT MOVES: ", round_state)
     moves_length = len(round_state["action_histories"]["preflop"]) - 2
 
     if moves_length > 0:
       for i in range(2, 2 + moves_length):
         next_move = round_state["action_histories"]["preflop"][i]["action"].lower()
         moves += (next_move,)
+    print("CURRENT MOVES: ", moves)
     
     hc = []
     suits = []
@@ -233,6 +234,7 @@ class SmartestPlayerImprovedPreflop(BasePokerPlayer):
       hc.append(r)
       suits.append(c.suit)
     hc.sort()
+    print("MY CARDS: ", hc, suits)
     first_num = c.RANK_MAP[hc[0]]
     second_num = c.RANK_MAP[hc[1]]
     same_suit = suits[0] == suits[1]

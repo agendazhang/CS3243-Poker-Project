@@ -222,8 +222,8 @@ class Group40Player(BasePokerPlayer):
       for i in range(2, 2 + moves_length):
         next_move = round_state["action_histories"]["preflop"][i]["action"].lower()
         moves += (next_move,)
-    print("CURRENT MOVES: ")
-    print(moves)
+    #print("CURRENT MOVES: ")
+    #print(moves)
 
     hc = []
     suits = []
@@ -232,6 +232,7 @@ class Group40Player(BasePokerPlayer):
       hc.append(r)
       suits.append(c.suit)
     hc.sort()
+    #print("MY CARDS: ", hc, suits)
     first_num = c.RANK_MAP[hc[0]]
     second_num = c.RANK_MAP[hc[1]]
     same_suit = suits[0] == suits[1]
@@ -266,8 +267,8 @@ class Group40Player(BasePokerPlayer):
       for i in range(2, 2 + moves_length):
         next_move = round_state["action_histories"]["preflop"][i]["action"].lower()
         moves += (next_move,)
-    print("CURRENT MOVES: ")
-    print(moves)
+    #print("CURRENT MOVES: ")
+    #print(moves)
 
     hc = []
     suits = []
@@ -276,6 +277,7 @@ class Group40Player(BasePokerPlayer):
       hc.append(r)
       suits.append(c.suit)
     hc.sort()
+    #print("MY CARDS: ", hc, suits)
     first_num = c.RANK_MAP[hc[0]]
     second_num = c.RANK_MAP[hc[1]]
     same_suit = suits[0] == suits[1]
