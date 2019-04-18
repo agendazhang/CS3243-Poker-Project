@@ -562,10 +562,10 @@ class SmartestPlayer(BasePokerPlayer):
     '''
 
   def receive_round_result_message(self, winners, hand_info, round_state):
-    if hand_info:  
-      oppo_hole_card = gen_cards(hand_info[abs(self.player_pos-1)]['hand']['card'])
-      index = self.compute_showdown_cards_index(oppo_hole_card)
-      self.showdown_card_freq[index] += 1
+    if hand_info:
+      hs = hand_info[abs(self.player_pos-1)]['hand']['hand']['strength']
+      hs_index = self.hand_strength_to_number[hs]
+      self.showdown_card_freq[hs_index] = self.showdown_card_freq[hs_index] + 1
   
   def compute_showdown_cards_index(self, hole_card):
     hand_evaluator = HandEvaluator()
