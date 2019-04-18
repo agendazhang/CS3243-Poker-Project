@@ -9,8 +9,8 @@ config = setup_config(max_round=500, initial_stack=10000, small_blind_amount=10)
 
 
 
-config.register_player(name="f1", algorithm=SmartestPlayer())
-config.register_player(name="FT2", algorithm=RaisedPlayer())
+config.register_player(name="P1", algorithm=SmartestPlayer())
+config.register_player(name="P2", algorithm=SmartestPlayerImprovedPreflop())
 
 
 game_result = start_poker(config, verbose=1)
